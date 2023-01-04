@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBits", "QBits\QBits.csproj", "{B4F5D25F-17EC-4D7A-B780-02B88EF7671E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QbitLib", "QbitLib\QbitLib.csproj", "{5FD690F9-43B6-4707-9CFF-6530F05DC5A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QbitLib.Tests", "QbitLib.Tests\QbitLib.Tests.csproj", "{B72A5B0C-8386-4FC6-BDAA-4C85F61A9181}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4F5D25F-17EC-4D7A-B780-02B88EF7671E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F5D25F-17EC-4D7A-B780-02B88EF7671E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F5D25F-17EC-4D7A-B780-02B88EF7671E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F5D25F-17EC-4D7A-B780-02B88EF7671E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FD690F9-43B6-4707-9CFF-6530F05DC5A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD690F9-43B6-4707-9CFF-6530F05DC5A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD690F9-43B6-4707-9CFF-6530F05DC5A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD690F9-43B6-4707-9CFF-6530F05DC5A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72A5B0C-8386-4FC6-BDAA-4C85F61A9181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72A5B0C-8386-4FC6-BDAA-4C85F61A9181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72A5B0C-8386-4FC6-BDAA-4C85F61A9181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72A5B0C-8386-4FC6-BDAA-4C85F61A9181}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E8B140B-C225-449E-9E9C-667A73D3627F}
+	EndGlobalSection
+EndGlobal
