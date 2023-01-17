@@ -4,6 +4,8 @@ namespace QBits.QBits
 {
     public abstract class QuantumDevice  
     {
+        public abstract Basis Basis { get; set; }
+
         public abstract Qubit allocate_qubit();
 
         public abstract void deallocate_qubit(Qubit qubit);

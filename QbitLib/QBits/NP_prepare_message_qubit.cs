@@ -20,14 +20,14 @@ namespace QBits.QBits
             }
         }
 
-        public static bool measure_message_qubit(bool b, Qubit q, Basis basis)
+        public static bool measure_message_qubit(bool b, Qubit q)
         {
             if (b)
             {
                 q.h();
             }
-            var res = q.measure(basis);
-            q.reset(basis);
+            var res = q.measure();
+            q.reset();
             return res;
         }
 

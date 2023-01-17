@@ -363,5 +363,38 @@ namespace QbitLib.Tests
             Ket res = M * ket;
             Assert.AreEqual(new Ket(5, 9), res);
         }
+
+        [TestMethod]
+        public void Kron()
+        {
+            Matrix2x2 A = new Complex[] {
+                            1, 3,
+                            5, 7
+                        };
+            Matrix2x2 B = new Complex[] {
+                            2, 4,
+                            6, 8
+                        };
+            QBits.QBits.Matrix4x4 expectedAKronB = new Complex[]
+            {
+                2, 4, 6, 12,
+                6, 8, 18, 24,
+                10, 20, 14, 28,
+                30, 40, 42, 56
+            };
+            QBits.QBits.Matrix4x4 expectedBKronA = new Complex[]
+            {
+                2, 6, 4, 12,
+                10, 14 ,20, 28,
+                6, 18, 8, 24,
+                30, 42, 40, 56,
+            };
+
+            var AkronB = A.Kron(B);
+            var BkronA = B.Kron(A);
+
+            Assert.AreEqual(expectedAKronB, AkronB);
+            Assert.AreEqual(expectedBKronA, BkronA);
+        }
     }
 }

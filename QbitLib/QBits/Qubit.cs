@@ -6,9 +6,9 @@
         void h();
         void x();
 
-        bool measure(Basis basis);
+        bool measure();
 
-        void reset(Basis basis);
+        void reset();
     }
 
 }

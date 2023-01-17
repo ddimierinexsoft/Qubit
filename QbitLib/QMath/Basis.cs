@@ -1,6 +1,4 @@
-﻿using System;
-using System.Numerics;
-using static QBits.QBits.NP;
+﻿using System.Numerics;
 
 namespace QBits.QBits
 {

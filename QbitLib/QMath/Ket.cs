@@ -24,7 +24,26 @@ namespace QBits.QBits
 
         public override string ToString()
         {
-            return $"<({this[0]}, {this[1]})";
+            if (this == NP.KET_0)
+            {
+                return "|0>";
+            }
+            else if (this == NP.KET_1)
+            {
+                return "|1>";
+            }
+            else if (this == NP.KET_Plus)
+            {
+                return "|+>";
+            }
+            else if (this == NP.KET_Minus)
+            {
+                return "|->";
+            }
+            else
+            {
+                return $"|({this[0]}, {this[1]})>";
+            }
         }
 
         public override int GetHashCode()
@@ -91,6 +110,8 @@ namespace QBits.QBits
         {
             return new Ket(a[0] - b[0], a[1] - b[1]);
         }
+
+      
     }
 
 }

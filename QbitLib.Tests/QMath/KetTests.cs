@@ -73,7 +73,43 @@ namespace QbitLib.Tests
         {
             var ket = new Ket(3, 2);
             var str = ket.ToString();
-            var expectedString = "<((3, 0), (2, 0))";
+            var expectedString = "|((3, 0), (2, 0))>";
+            Assert.AreEqual(expectedString, str);
+        }
+
+        [TestMethod]
+        public void ToStringTest0()
+        {
+            var ket = NP.KET_0;
+            var str = ket.ToString();
+            var expectedString = "|0>";
+            Assert.AreEqual(expectedString, str);
+        }
+
+        [TestMethod]
+        public void ToStringTest1()
+        {
+            var ket = NP.KET_1;
+            var str = ket.ToString();
+            var expectedString = "|1>";
+            Assert.AreEqual(expectedString, str);
+        }
+
+        [TestMethod]
+        public void ToStringTestPlus()
+        {
+            var ket = NP.KET_Plus;
+            var str = ket.ToString();
+            var expectedString = "|+>";
+            Assert.AreEqual(expectedString, str);
+        }
+
+        [TestMethod]
+        public void ToStringTestMinus()
+        {
+            var ket = NP.KET_Minus;
+            var str = ket.ToString();
+            var expectedString = "|->";
             Assert.AreEqual(expectedString, str);
         }
 

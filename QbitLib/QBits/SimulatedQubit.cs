@@ -1,31 +1,27 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 using static QBits.QBits.NP;
 
 namespace QBits.QBits
 {
     public class SimulatedQubit : Qubit
     {
+        private QuantumSimulator device;
         private Bra state;
-        
-        public SimulatedQubit()
-        {
-             
-        }
 
-        public SimulatedQubit(Complex s0, Complex s1)
+        public SimulatedQubit(QuantumSimulator device)
         {
-            this.state = new Bra(s0, s1);
-        }
-
-        public SimulatedQubit(Complex[] state)
-        {
-            this.state = state;
-        }
+            this.device = device;
+            this.reset();
+        }         
 
         public Complex[] GetState()
         {
             return state;
+        }
+
+        public void SetState(Complex[] state)
+        {
+            this.state = state;
         }
 
         public virtual void h()
@@ -38,25 +34,25 @@ namespace QBits.QBits
             state = state * X;
         }
 
-        public virtual bool measure(Basis basis)
+        public virtual bool measure()
         {
-            var pr0 = NP.Pr(state, basis.KET_0);
+            var pr0 = NP.Pr(state, device.Basis.KET_0);
             var montecarlo = NP.Rnd() <= pr0;
             if (montecarlo)
             {
-                state = basis.KET_0.Transpose();
+                state = device.Basis.KET_0.Transpose();
                 return false;
             }
             else
             {
-                state = basis.KET_1.Transpose();
+                state = device.Basis.KET_1.Transpose();
                 return true;
             }
         }
 
-        public virtual void reset(Basis basis)
+        public virtual void reset()
         {
-            state = basis.KET_0.Transpose();
+            state = device.Basis.KET_0.Transpose();
         }
     }
 

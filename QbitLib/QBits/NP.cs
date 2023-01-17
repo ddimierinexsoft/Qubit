@@ -20,6 +20,11 @@ namespace QBits.QBits
             return rnd.NextDouble();
         }
 
+        public static bool random_bit()
+        {
+            return rnd.Next(0, 2) != 0;
+        }
+
         public static Complex sqrt(double value)
         {
             return Math.Sqrt(value);

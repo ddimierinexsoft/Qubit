@@ -12,18 +12,18 @@
             }
         }
 
-        public static bool eve_measure(Qubit q, Basis basis)
+        public static bool eve_measure(Qubit q)
         {
-            return q.measure(basis);
+            return q.measure();
         }
 
-        public static void send_classical_bit(QuantumDevice device, bool bit, Basis basis)
+        public static void send_classical_bit(QuantumDevice device, bool bit)
         {
             device.using_qubit((q) =>
             {
                 prepare_classical_message(bit, q);
-                var result = eve_measure(q, basis);
-                q.reset(basis);
+                var result = eve_measure(q);
+                q.reset();
                 AssertHelper.AreEqual(result, bit);
             });
         }

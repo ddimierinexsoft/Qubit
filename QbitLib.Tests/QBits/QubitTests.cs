@@ -8,25 +8,30 @@ namespace QbitLib.Tests
     [TestClass]
     public class QubitTests
     {
+        QuantumSimulator device = new QuantumSimulator();
+
+
         [TestMethod]
         public void DefaultConstructor()
         {
-            var q = new SimulatedQubit();
+            var q = new SimulatedQubit(device);
             Assert.IsNotNull(q);
         }
 
         [TestMethod]
-        public void ArrayConstructor()
+        public void SetState()
         {
-            Complex[] arr = new Complex[] { 0, 1 };
-            var q = new SimulatedQubit(arr);
-            Assert.IsTrue(q.measure());
+            var q = new SimulatedQubit(device);
+            Bra arr = new Complex[] { 0, 1 };
+            q.SetState(arr);
+            Bra resArr = q.GetState();
+            Assert.AreEqual(resArr, arr);
         }
 
         [TestMethod]
         public void reset()
         {
-            var q = new SimulatedQubit();
+            var q = new SimulatedQubit(device);
             q.reset();
             Assert.IsFalse(q.measure());
         }
@@ -34,7 +39,8 @@ namespace QbitLib.Tests
         [TestMethod]
         public void h0()
         {
-            var q = new SimulatedQubit(1, 0);
+            var q = new SimulatedQubit(device);
+            q.SetState(NP.KET_0);
             q.h();
             Bra state = q.GetState();
             Assert.AreEqual(new Bra(Math.Sqrt(2) / 2, Math.Sqrt(2) / 2), state);
@@ -43,7 +49,8 @@ namespace QbitLib.Tests
         [TestMethod]
         public void h1()
         {
-            var q = new SimulatedQubit(0, 1);
+            var q = new SimulatedQubit(device);
+            q.SetState(NP.KET_1);
             q.h();
             Bra state = q.GetState();
             Assert.AreEqual(new Bra(Math.Sqrt(2) / 2, -Math.Sqrt(2) / 2), state);
@@ -52,7 +59,8 @@ namespace QbitLib.Tests
         [TestMethod]
         public void x0()
         {
-            var q = new SimulatedQubit(1, 0);
+            var q = new SimulatedQubit(device);
+            q.SetState(NP.KET_0);
             q.x();
             Bra state = q.GetState();
             Assert.AreEqual(new Bra(0, 1), state);
@@ -61,7 +69,8 @@ namespace QbitLib.Tests
         [TestMethod]
         public void x1()
         {
-            var q = new SimulatedQubit(0, 1);
+            var q = new SimulatedQubit(device);
+            q.SetState(NP.KET_1);
             q.x();
             Bra state = q.GetState();
             Assert.AreEqual(new Bra(1, 0), state );

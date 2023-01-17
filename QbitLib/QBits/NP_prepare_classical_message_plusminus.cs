@@ -13,19 +13,19 @@
             q.h();
         }
 
-        public static bool eve_measure_plusminus(Qubit q, Basis basis)
+        public static bool eve_measure_plusminus(Qubit q)
         {
             q.h();
-            return q.measure(basis);
+            return q.measure();
         }
 
-        public static void send_classical_bit_plusminus(QuantumDevice device, bool bit, Basis basis)
+        public static void send_classical_bit_plusminus(QuantumDevice device, bool bit)
         {
             device.using_qubit((q) =>
             {
                 prepare_classical_message_plusminus(bit, q);
-                var result = eve_measure_plusminus(q, basis);
-                q.reset(basis);
+                var result = eve_measure_plusminus(q);
+                q.reset();
                 AssertHelper.AreEqual(result, bit);
             });
         }

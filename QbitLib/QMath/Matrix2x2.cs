@@ -14,11 +14,11 @@ namespace QBits.QBits
         public int Columns => 2;
         
         public Matrix2x2() { }
-        public Matrix2x2(Complex[] items) : this(items[0], items[1], items[2], items[3]) { }
         public Matrix2x2(Complex[][] rows) : this(rows[0][0], rows[0][1], rows[1][0], rows[1][1]) { }
-        public Matrix2x2(Complex a00, Complex a01, Complex a10, Complex a11)
+        public Matrix2x2(params Complex[] arr)
         {
-            arr = new[] { a00, a01, a10, a11 };
+            if (arr.Length != 4) throw new ArgumentException("Arr length must be 4");
+            this.arr = (Complex[])arr.Clone();
         }
         public Matrix2x2(Matrix2x2 m)
         {
@@ -157,6 +157,18 @@ namespace QBits.QBits
         public static Ket operator *(Matrix2x2 M,  Ket k)
         {
             return new Ket(k[0] * M[0, 0] + k[1] * M[0, 1], k[0] * M[1, 0] + k[1] * M[1, 1]);
+        }
+
+        public Matrix4x4 Kron(Matrix2x2 B)
+        {
+            var A = this;
+            return new[]
+            {
+                A[0, 0] * B[0, 0], A[0, 0] * B[0, 1], A[0, 1] * B[0, 0], A[0, 1] * B[0, 1],
+                A[0, 0] * B[1, 0], A[0, 0] * B[1, 1], A[0, 1] * B[1, 0], A[0, 1] * B[1, 1],
+                A[1, 0] * B[0, 0], A[1, 0] * B[0, 1], A[1, 1] * B[0, 0], A[1, 1] * B[0, 1],
+                A[1, 0] * B[1, 0], A[1, 0] * B[1, 1], A[1, 1] * B[1, 0], A[1, 1] * B[1, 1],
+            };
         }
     }
 
